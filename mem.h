@@ -1,5 +1,5 @@
-#ifndef CPPTESTPROBLEM_MEM_H
-#define CPPTESTPROBLEM_MEM_H
+#ifndef MEM
+#define MEM
 
 class MainMemory {
 private:

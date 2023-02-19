@@ -1,5 +1,5 @@
-#ifndef CPPTESTPROBLEM_TAPE_H
-#define CPPTESTPROBLEM_TAPE_H
+#ifndef TAPE
+#define TAPE
 
 #define OUT_OF_MEMORY 0
 #define OK 1

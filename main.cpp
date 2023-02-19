@@ -43,7 +43,17 @@ void sortTape(Tape* inputTape, Tape* minAuxTape, Tape* maxAuxTape, Tape* outputT
     sortTape(maxAuxTape, minAuxTape, inputTape, outputTape);
 }
 
-int main() {
+int main(int argc, char** argv) {
+    if (argc == 3) {
+        if (!freopen(argv[1], "r", stdin)){
+            std::cout << "Wrong filepath.\n";
+            return -1;
+        }
+        if (!freopen(argv[2], "w+", stdout)){
+            std::cout << "Wrong filepath.\n";
+            return -1;
+        }
+    }
     int n;
     int x;
     std::cin >> n;
@@ -58,12 +68,12 @@ int main() {
     Tape outputTape = Tape(n);
     sortTape(&inputTape, &firstAuxTape, &secondAuxTape, &outputTape);
     outputTape.MovePtrToStart();
-    freopen("results.out", "w+", stdout);
     for (int i = 0; i < n; i++) {
         std::cout << outputTape.GetElement() << ' ';
         outputTape.Next();
     }
     int ticks = inputTape.GetTick() + firstAuxTape.GetTick() + secondAuxTape.GetTick() + outputTape.GetTick();
     std::cout << "\nticks: " << ticks;
+    fclose(stdout);
     return 0;
 }
